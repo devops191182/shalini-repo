@@ -14,6 +14,10 @@ Resources:
           FromPort: '22'
           ToPort: '22'
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
 
   # Resource for the EC2 Instance
   MyEC2Instance:
@@ -27,4 +31,4 @@ Resources:
         - !Ref InstanceSecurityGroup
       Tags:
         - Key: Name
-          Value: 1.30pm-sys
+          Value: Tanmay
