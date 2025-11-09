@@ -1,0 +1,21 @@
+---
+- name: Create S3 Bucket
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    bucket_name: "3.30pm-batch-1122"
+    region: "us-east-1"
+
+  tasks:
+    - name: Create an S3 bucket
+      amazon.aws.s3_bucket:
+        bucket: "{{ bucket_name }}"
+        mode: create
+        region: "{{ region }}"
+        acl: private
+        versioning: true
+        tags:
+          Environment: "Dev"
+          Owner: "Ansible"
